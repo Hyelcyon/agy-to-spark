@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.0] - 2026-10-29
+
+### Added
+- **Apple-Grade Fluid Text Motion System**:
+  - Implemented `@keyframes apple-text-reveal` (soft upward translation and fade-in over 240ms) and `@keyframes apple-message-reveal` (gentle 280ms reveal with `scale(0.995) -> scale(1)` and `translateY(6px) -> 0`).
+  - Applied Apple's signature fluid spring deceleration curve `cubic-bezier(0.16, 1, 0.3, 1)` across all text reveals, button micro-interactions, and status transitions.
+  - Attached smooth entrance animations to newly arriving message bubbles (`[role="article"]`, `[data-testid="turn-cards-container"]`, `user-message-bubble`) and their paragraphs/lists via the `gemini-fresh-enter` class.
+  - Added single-shot lifecycle gating (`data-motion-applied`) ensuring historical scrolled text remains completely static with zero animation repeats or CPU overhead.
+  - Enforced Apple-standard font smoothing (`-webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important;`) across all UI surfaces.
+
+---
+
 ## [2.2.5] - 2026-10-29
 
 ### Added

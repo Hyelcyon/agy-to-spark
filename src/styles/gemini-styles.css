@@ -1,11 +1,47 @@
 /* ========================================================
    GEMINI SPARK UI STYLES
+   - Apple-Grade Fluid Text & UI Motion System
    - Smooth 4-color wave animation during thinking
    - 4-dot convergence morph animation on completion
    - Graceful gliding entrance and exit animations for text & dots
    - Independent text glide animation for sub-steps (zero-snap guarantee)
    - Strict 4px by 4px circle invariants (zero flexbox squishing)
    ======================================================== */
+
+/* Apple-style Fluid Spring Easing Constants: cubic-bezier(0.16, 1, 0.3, 1) */
+
+@keyframes apple-text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes apple-message-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gemini-text-glide-left {
+  0% {
+    transform: translateX(25px);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 @keyframes gemini-smooth-wave {
   0%, 100% {
@@ -65,20 +101,62 @@
   }
 }
 
-@keyframes gemini-text-glide-left {
-  0% {
-    transform: translateX(25px);
-  }
-  100% {
-    transform: translateX(0);
-  }
+/* ========================================================
+   APPLE-GRADE TYPOGRAPHY & SMOOTH MOTION ENHANCEMENTS
+   ======================================================== */
+
+body, [role="article"], button, input, textarea {
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility !important;
 }
 
+/* Fresh Message Turn Smooth Entrance (Apple Spring) */
+.gemini-fresh-enter {
+  animation: apple-message-reveal 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+.gemini-fresh-enter p,
+.gemini-fresh-enter li,
+.gemini-fresh-enter pre {
+  animation: apple-text-reveal 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* Fluid Micro-Interactions on Interactive Rows & Buttons */
+[data-testid="worked-for-collapsible"],
+[data-testid="thinking-collapsible-trigger"],
+[data-testid="tool-group-collapsible"],
+[data-testid="agent-loading"],
+div[role="button"] {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 180ms ease !important;
+}
+
+[data-testid="worked-for-collapsible"] span,
+[data-testid="thinking-collapsible-trigger"] span,
+div[role="button"] span {
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 180ms ease !important;
+}
+
+/* Sub-step Independent Text Glide */
 .gemini-text-glide {
   display: inline-block !important;
-  animation: gemini-text-glide-left 260ms cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-  will-change: transform !important;
+  animation: gemini-text-glide-left 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  will-change: transform, opacity !important;
 }
+
+/* In-flight Agent Status & Ephemeral Text Fluid Entrance */
+[data-testid="agent-loading"],
+[data-testid="ephemeral-tool-status"] {
+  animation: apple-text-reveal 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* ========================================================
+   DOTS & ICONS SYSTEM
+   ======================================================== */
 
 .gemini-gradient-dots {
   display: inline-flex !important;
@@ -96,12 +174,12 @@
   white-space: nowrap !important;
   overflow: visible !important;
   animation: gemini-dots-enter 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-  transition: width 240ms cubic-bezier(0.4, 0, 0.2, 1),
-              min-width 240ms cubic-bezier(0.4, 0, 0.2, 1),
-              max-width 240ms cubic-bezier(0.4, 0, 0.2, 1),
-              margin-right 240ms cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
-              transform 200ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: width 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              min-width 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              max-width 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              margin-right 240ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
   will-change: transform, opacity, width, min-width, margin-right !important;
 }
 
@@ -128,7 +206,7 @@
   flex-shrink: 0 !important;
   aspect-ratio: 1 / 1 !important;
   box-sizing: border-box !important;
-  animation: gemini-smooth-wave 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+  animation: gemini-smooth-wave 1.3s cubic-bezier(0.16, 1, 0.3, 1) infinite !important;
   will-change: transform, opacity !important;
 }
 
@@ -157,19 +235,19 @@
 }
 
 .gemini-gradient-dots.merging .dot-blue {
-  animation: gemini-dot-converge-1 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  animation: gemini-dot-converge-1 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
 
 .gemini-gradient-dots.merging .dot-red {
-  animation: gemini-dot-converge-2 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  animation: gemini-dot-converge-2 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
 
 .gemini-gradient-dots.merging .dot-yellow {
-  animation: gemini-dot-converge-3 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  animation: gemini-dot-converge-3 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
 
 .gemini-gradient-dots.merging .dot-green {
-  animation: gemini-dot-converge-4 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  animation: gemini-dot-converge-4 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
 }
 
 .gemini-official-icon {

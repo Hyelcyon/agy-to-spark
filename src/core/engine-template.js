@@ -206,6 +206,13 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+
+    // 8. Apple-Grade Fluid Text Motion for Newly Arriving Turns & Message Blocks
+    const freshTurnElements = document.querySelectorAll('[role="article"]:not([data-motion-applied]), [data-testid="turn-cards-container"] > div:not([data-motion-applied]), [data-testid="user-message-bubble"]:not([data-motion-applied])');
+    freshTurnElements.forEach(el => {
+      el.setAttribute('data-motion-applied', 'true');
+      el.classList.add('gemini-fresh-enter');
+    });
   };
 
   applyBranding();
