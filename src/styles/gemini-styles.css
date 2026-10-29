@@ -3,6 +3,7 @@
    - Smooth 4-color wave animation during thinking
    - 4-dot convergence morph animation on completion
    - Graceful gliding entrance and exit animations for text & dots
+   - Independent text glide animation for sub-steps (zero-snap guarantee)
    - Strict 4px by 4px circle invariants (zero flexbox squishing)
    ======================================================== */
 
@@ -62,6 +63,21 @@
     min-width: 25px;
     margin-right: 4px;
   }
+}
+
+@keyframes gemini-text-glide-left {
+  0% {
+    transform: translateX(25px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.gemini-text-glide {
+  display: inline-block !important;
+  animation: gemini-text-glide-left 260ms cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  will-change: transform !important;
 }
 
 .gemini-gradient-dots {

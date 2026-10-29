@@ -98,16 +98,31 @@ window.addEventListener('DOMContentLoaded', () => {
       document.title = document.title.replace(/Geminispark|Antigravity/g, 'Gemini Spark');
     }
 
-    // 4. Ephemeral tool status (Active in-flight "Working..." state)
-    const ephemeralStatuses = document.querySelectorAll('[data-testid="ephemeral-tool-status"]');
-    ephemeralStatuses.forEach(el => {
-      if (!el.classList.contains('flex-col') && !el.querySelector('.gemini-gradient-dots')) {
+    // 4. In-flight agent status ("Working...", "Compacting...", active tool execution)
+    const agentLoadingElements = document.querySelectorAll('[data-testid="agent-loading"], [data-testid="ephemeral-tool-status"]');
+    agentLoadingElements.forEach(el => {
+      if (!el.querySelector('.gemini-gradient-dots')) {
         el.insertBefore(createGradientDots(), el.firstChild);
       }
     });
 
-    // 5. Purge any orphan dots accidentally placed in column containers
-    document.querySelectorAll('.flex-col > .gemini-gradient-dots').forEach(el => el.remove());
+    // Universal text-level hooking for "Working" / "Working..." to guarantee dots in all view modes
+    const allTextCandidates = document.querySelectorAll('span, div, p');
+    allTextCandidates.forEach(el => {
+      if (el.children.length === 0 && (el.textContent?.trim() === 'Working' || el.textContent?.trim() === 'Working...')) {
+        const container = el.closest('[data-testid="agent-loading"], [data-testid="ephemeral-tool-status"]') || el.parentElement;
+        if (container && !container.querySelector('.gemini-gradient-dots') && !container.classList.contains('gemini-gradient-dot')) {
+          container.insertBefore(createGradientDots(), container.firstChild);
+        }
+      }
+    });
+
+    // 5. Purge only orphan dots accidentally placed in raw column containers
+    document.querySelectorAll('.flex-col > .gemini-gradient-dots').forEach(el => {
+      if (!el.closest('[data-testid="agent-loading"]') && !el.closest('[data-testid="ephemeral-tool-status"]')) {
+        el.remove();
+      }
+    });
 
     // 6. Update 'Worked for' collapsible headers
     const workedTriggers = document.querySelectorAll('[data-testid="worked-for-collapsible"]');
@@ -145,11 +160,11 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // 7. Tool sub-steps: Graceful Gliding Exit + Strict 0% CPU Lifecycle
-    const subSteps = document.querySelectorAll('div[role="button"]');
+    // 7. Tool sub-steps: Graceful Gliding Exit + Independent Text Glide Animation
+    const subSteps = document.querySelectorAll('div[role="button"], [data-testid="ephemeral-tool-status"]');
     subSteps.forEach(el => {
       const testId = el.getAttribute('data-testid');
-      if (testId === 'worked-for-collapsible' || testId === 'thinking-collapsible-trigger' || testId === 'tool-group-collapsible') {
+      if (testId === 'worked-for-collapsible' || testId === 'thinking-collapsible-trigger' || testId === 'tool-group-collapsible' || testId === 'agent-loading') {
         return;
       }
 
@@ -162,12 +177,25 @@ window.addEventListener('DOMContentLoaded', () => {
       const dots = el.querySelector('.gemini-gradient-dots');
 
       if (isRunning) {
+        el.removeAttribute('data-glided');
         if (!dots) {
           el.insertBefore(createGradientDots(), el.firstChild);
         } else if (dots.classList.contains('gemini-dots-exit')) {
           dots.classList.remove('gemini-dots-exit');
         }
       } else {
+        // Trigger smooth text gliding transition from indented position back to original
+        if (text.startsWith('Ran') && !el.getAttribute('data-glided')) {
+          el.setAttribute('data-glided', 'true');
+          const textWrapper = el.querySelector('.truncate') || el.querySelector('span') || el.lastElementChild;
+          if (textWrapper) {
+            textWrapper.classList.add('gemini-text-glide');
+            setTimeout(() => {
+              textWrapper.classList.remove('gemini-text-glide');
+            }, 280);
+          }
+        }
+
         if (dots && !dots.classList.contains('gemini-dots-exit')) {
           dots.classList.add('gemini-dots-exit');
           setTimeout(() => {

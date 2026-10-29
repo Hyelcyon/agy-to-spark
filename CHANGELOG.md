@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.2.5] - 2026-10-29
+
+### Added
+- **`agent-loading` ("Working...") Wave Dots Hooking**: Explicitly hooked `[data-testid="agent-loading"]` and added universal text-node scanning for standalone `"Working"` and `"Working..."` states. Resolves the issue where early in-flight turns rendered plain unstyled text without the 4-color wave dots.
+- **Independent Text Glide Animation (`gemini-text-glide`)**: Added keyframe `@keyframes gemini-text-glide-left` (`translateX(25px)` -> `translateX(0)`) attached to `.gemini-text-glide`. When sub-steps finish (`Ran ...`), the text smoothly glides to the left over 260ms with `cubic-bezier(0.4, 0, 0.2, 1)`, guaranteeing a 100% fluid transition even across React reconciliation cycles.
+
+### Fixed
+- **Ephemeral Tool Status Exit Handling**: Extended sub-step exit and gliding logic to include `[data-testid="ephemeral-tool-status"]` in addition to button rows.
+- **Safe Column Purging**: Hardened column container dot purging to strictly exempt valid `agent-loading` and `ephemeral-tool-status` rows.
+
+---
+
 ## [2.2.4] - 2026-10-29
 
 ### Added

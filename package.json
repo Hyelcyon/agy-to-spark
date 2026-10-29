@@ -1,6 +1,6 @@
 {
   "name": "agy-to-spark",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "description": "High-fidelity, version-independent rebranding and thinking engine transforming Google Antigravity into Gemini Spark.",
   "main": "src/index.js",
   "bin": {
