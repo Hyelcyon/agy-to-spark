@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/Hyelcyon/agy-to-spark/actions/workflows/ci.yml/badge.svg)](https://github.com/Hyelcyon/agy-to-spark/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.3.6-green.svg)](package.json)
+[![Version](https://img.shields.io/badge/version-2.3.7-green.svg)](package.json)
 
 ---
 

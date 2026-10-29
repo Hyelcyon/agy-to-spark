@@ -63,6 +63,28 @@
   -webkit-backdrop-filter: blur(12px) !important;
 }
 
+/* Remove dark, harsh rectangular cards from user message turns */
+.group\/user-input-step .bg-card-border,
+.group\/user-input-step .bg-card {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Authentic fluid user message typography */
+.group\/user-input-step .whitespace-pre-wrap {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+}
+
+/* Clean rounded borders for uploaded image thumbnails in user input */
+.group\/user-input-step img.object-cover {
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
 /* Apple-style Fluid Spring Easing Constants: cubic-bezier(0.16, 1, 0.3, 1) */
 
 @keyframes apple-text-reveal {

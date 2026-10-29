@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.7] - 2026-10-29
+
+### Removed
+- **Harsh Dark User Message Box Container**:
+  - Removed the bulky `.bg-card` and `.bg-card-border` box wrapper around user prompt turns.
+  - Rendered user messages in a clean, borderless typography flow directly over the ambient aurora background, matching modern conversational UI standards.
+  - Added subtle, clean 8px rounded borders to image attachment thumbnails.
+
+---
+
 ## [2.3.6] - 2026-10-29
 
 ### Fixed
