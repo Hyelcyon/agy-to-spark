@@ -29,7 +29,8 @@ if errorlevel 1 goto FAILED
 
 echo.
 echo ======================================================================
-echo  [SUCCESS] Gemini Spark 2.3.11 patch successfully applied!
+echo  [SUCCESS] Gemini Spark 2.3.12 patch successfully applied!
+echo   - Full-width linear feathered edge blending (eliminated dark oval patch and harsh borders)
 echo   - Seamless feathered acrylic shield (eliminated prominent dark box)
 echo   - Acrylic frosted glass sticky header (shields scrolled text softly without harsh lines)
 echo   - Organic feathered edge for pinned sticky headers (eliminated sharp cut line)

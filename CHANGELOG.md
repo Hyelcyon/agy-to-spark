@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.12] - 2026-10-29
+
+### Changed
+- **Full-Width Linear Feathered Edge Blending (경계선 없는 완전한 선형 디졸브)**:
+  - Replaced radial ellipse mask with a full-width downward linear gradient fade (`linear-gradient(to bottom, rgba(16, 16, 16, 0.9) 0%, ..., transparent 100%)`).
+  - Applied soft mask feathering along the entire column width, completely removing dark circular patches and harsh edge lines so the header dissolves naturally into the conversation stream.
+
+---
+
 ## [2.3.11] - 2026-10-29
 
 ### Changed
