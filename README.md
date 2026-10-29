@@ -4,7 +4,7 @@
 
 [![CI](https://github.com/Hyelcyon/agy-to-spark/actions/workflows/ci.yml/badge.svg)](https://github.com/Hyelcyon/agy-to-spark/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.2.3-green.svg)](package.json)
+[![Version](https://img.shields.io/badge/version-2.2.5-green.svg)](package.json)
 
 ---
 
@@ -13,13 +13,6 @@
 `agy-to-spark` is an automated patch and runtime injection engine that converts the Google Antigravity desktop IDE into **Gemini Spark**.
 
 Rather than copying hardcoded, version-locked `app.asar` blobs that break on application updates, `agy-to-spark` operates as a dynamic **Mode B** patcher: it unpacks the live Electron application archive, injects an isolated lifecycle controller into `dist/preload.js`, and repacks the package.
-
-### Key Engineering Invariants
-- **1:1 Color Accuracy**: Uses authentic 256x256 Google Gemini desktop application assets (`icon.png`, SHA256: `1545adfc...`), rendered via Chromium's Skia GPU mipmapping to avoid sRGB gamma-uncorrected muddy downsampling.
-- **Aspect Ratio Invariant**: Enforces `aspect-ratio: 1 / 1`, `flex-shrink: 0`, and a `25px` inline container so the 4 thinking dots remain perfect mathematical circles under any Flexbox parent.
-- **Zero Layout Drift**: Zero horizontal pixel shifts on collapsible turn headers (`margin-right: 4px; width: 14px; height: 14px; vertical-align: middle`).
-- **0% Idle CPU Budget**: Tool sub-steps (`Ran ...`, `Edited ...`) automatically detach CSS keyframes upon completion, guaranteeing zero background repaints when idle.
-- **Convergence Morphing**: The 4-color wave dots smoothly converge toward the center over 0.35s and pop in the official Spark icon upon turn completion.
 
 ---
 
