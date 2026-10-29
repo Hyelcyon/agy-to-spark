@@ -64,6 +64,9 @@
 }
 
 /* Remove dark, harsh rectangular cards from user message turns */
+[class*="group/user-input-step"] .bg-card,
+[class*="group/user-input-step"] .bg-card-border,
+[class*="group/user-input-step"] div[class*="bg-card"],
 .group\/user-input-step .bg-card-border,
 .group\/user-input-step .bg-card {
   background-color: transparent !important;
@@ -73,6 +76,7 @@
 }
 
 /* Authentic fluid user message typography */
+[class*="group/user-input-step"] .whitespace-pre-wrap,
 .group\/user-input-step .whitespace-pre-wrap {
   color: rgba(255, 255, 255, 0.95) !important;
   font-size: 15px !important;
@@ -80,6 +84,7 @@
 }
 
 /* Clean rounded borders for uploaded image thumbnails in user input */
+[class*="group/user-input-step"] img.object-cover,
 .group\/user-input-step img.object-cover {
   border-radius: 8px !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;

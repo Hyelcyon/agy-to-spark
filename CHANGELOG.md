@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.8] - 2026-10-29
+
+### Fixed
+- **Comprehensive User Input Card Box Neutralization**:
+  - Broadened selector specificity (`[class*="group/user-input-step"] .bg-card`, `[class*="group/user-input-step"] .bg-card-border`, and `[class*="group/user-input-step"] div[class*="bg-card"]`) to completely eliminate remaining dark rectangular borders or card wrappers under Tailwind CSS escaped class structures.
+  - Ensures prompt texts and user attachments sit completely unboxed and clean directly over the ambient aurora background.
+
+---
+
 ## [2.3.7] - 2026-10-29
 
 ### Removed
