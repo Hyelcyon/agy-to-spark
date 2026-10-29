@@ -29,18 +29,11 @@ if errorlevel 1 goto FAILED
 
 echo.
 echo ======================================================================
-echo  [SUCCESS] Gemini Spark 2.3.12 patch successfully applied!
-echo   - Full-width linear feathered edge blending (eliminated dark oval patch and harsh borders)
-echo   - Seamless feathered acrylic shield (eliminated prominent dark box)
-echo   - Acrylic frosted glass sticky header (shields scrolled text softly without harsh lines)
-echo   - Organic feathered edge for pinned sticky headers (eliminated sharp cut line)
-echo   - Neutralized user input card box containers
-echo   - Clean borderless user message layout (removed bulky dark box)
-echo   - Seamless sticky header blending (eliminates black strip over glow)
-echo   - Calibrated subtle ambient aurora glow
-echo   - 1:1 Authentic Gemini center aurora background light source (광원)
+echo  [SUCCESS] Gemini Spark 2.3.13 patch successfully applied!
+echo   - Seamless transparent conversation blending (pure ambient aurora glow)
 echo   - Crisp monochrome white Gemini Spark initial loading screen overlay
-echo   - Authentic Google Gemini ambient aurora light source (광원)
+echo   - Neutralized user message card container boxes
+echo   - 1:1 Authentic Gemini center aurora background light source (광원)
 echo   - Apple dynamic text morph transition: Smooth crossfade when text updates
 echo   - Apple fluid spring text motion: cubic-bezier(0.16, 1, 0.3, 1)
 echo   - Fixed "Working..." state: Native inline 4-color wave dots on agent-loading

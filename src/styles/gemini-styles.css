@@ -40,37 +40,19 @@
 }
 
 /* ========================================================
-   SEAMLESS CONVERSATION BLENDING & SEAMLESS FEATHERED ACRYLIC
+   SEAMLESS CONVERSATION BLENDING & PURE NATURAL BACKGROUND
    ======================================================== */
 
 .sticky.top-0 {
   position: sticky !important;
   z-index: 20 !important;
   width: 100% !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  background: linear-gradient(
-    to bottom,
-    rgba(16, 16, 16, 0.90) 0%,
-    rgba(16, 16, 16, 0.70) 50%,
-    rgba(16, 16, 16, 0.25) 80%,
-    transparent 100%
-  ) !important;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 60%,
-    rgba(0, 0, 0, 0.4) 80%,
-    transparent 100%
-  ) !important;
-  mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 60%,
-    rgba(0, 0, 0, 0.4) 80%,
-    transparent 100%
-  ) !important;
-  padding-bottom: 24px !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent !important;
+  -webkit-mask-image: none !important;
+  mask-image: none !important;
+  padding-bottom: 0px !important;
 }
 
 /* Eliminate harsh solid box background, shadows, and borders from bleed wrapper */

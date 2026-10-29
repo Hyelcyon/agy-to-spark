@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.13] - 2026-10-29
+
+### Changed
+- **Seamless Transparent Conversation Blending (경계선 없는 완전한 투명 블렌딩)**:
+  - Eliminated harsh rectangular box backgrounds, artificial blur filters, and cut-off gradients from the sticky user message header (`.sticky.top-0`).
+  - Allowed user message turns, text, and attachments to float naturally over the authentic Gemini ambient aurora glow without visible seam lines or dark patches.
+- **Monochrome White Gemini Spark Loading Overlay**:
+  - Ensured `dist/loadingOverlay.js` consistently replaces the default Antigravity SVG with the authentic 64x64 monochrome white Gemini Spark vector path across all packaged bundles.
+
+---
+
 ## [2.3.12] - 2026-10-29
 
 ### Changed
