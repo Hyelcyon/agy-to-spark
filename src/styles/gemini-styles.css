@@ -40,27 +40,32 @@
 }
 
 /* ========================================================
-   SEAMLESS CONVERSATION BLENDING & STICKY STRIP ELIMINATION
+   SEAMLESS CONVERSATION BLENDING & ORGANIC FEATHERED STICKY
    ======================================================== */
 
-/* Eliminate harsh solid-black header cutting across the background aurora glow */
-.md-sticky-message-bleed {
-  background-color: transparent !important;
-  background: transparent !important;
+/* Eliminate sharp rectangular cut line when user message is pinned */
+.sticky.top-0 {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-.md-sticky-message-bleed::before {
-  display: none !important;
+/* Organic feathered fade-out gradient blending smoothly into scrolled conversation */
+.sticky.top-0 .md-sticky-message-bleed {
+  background: linear-gradient(
+    to bottom,
+    rgba(16, 16, 16, 0.92) 0%,
+    rgba(16, 16, 16, 0.75) 50%,
+    rgba(16, 16, 16, 0.35) 80%,
+    transparent 100%
+  ) !important;
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%) !important;
+  mask-image: linear-gradient(to bottom, black 65%, transparent 100%) !important;
+  padding-bottom: 18px !important;
 }
 
+.md-sticky-message-bleed::before,
 .md-sticky-message-bleed::after {
   display: none !important;
-}
-
-/* Luxurious frosted glass effect on sticky message row when pinned */
-.sticky.top-0 {
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
 }
 
 /* Remove dark, harsh rectangular cards from user message turns */

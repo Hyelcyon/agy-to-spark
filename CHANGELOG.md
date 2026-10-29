@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.9] - 2026-10-29
+
+### Changed
+- **Organic Feathered Edge for Pinned Sticky Headers**:
+  - Eliminated the unnatural hard rectangular backdrop cutoff line below pinned user messages.
+  - Implemented an organic, feathered gradient mask (`-webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%)`) that fades out seamlessly over scrolled agent content.
+
+---
+
 ## [2.3.8] - 2026-10-29
 
 ### Fixed
