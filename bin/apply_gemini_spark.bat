@@ -29,10 +29,10 @@ if errorlevel 1 goto FAILED
 
 echo.
 echo ======================================================================
-echo  [SUCCESS] Gemini Spark patch successfully applied!
+echo  [SUCCESS] Gemini Spark 2.2.5 patch successfully applied!
 echo   - 1:1 Authentic Google Gemini colors and GPU mipmapped pixels
-echo   - Fixed aspect ratio invariant: Perfect 4px circles (zero pill squishing)
-echo   - Fixed placement: Native inline status on [ephemeral-tool-status]
+echo   - Fixed "Working..." state: Native inline 4-color wave dots on agent-loading
+echo   - Independent text glide animation: 100% fluid transition when steps finish
 echo   - Smooth 4-dot wave while thinking -> 4-dot convergence morph into Spark
 echo   - Graceful gliding exit and entrance animations for tool sub-step dots
 echo   - Zero CPU leak: Auto-cleans completed tool sub-steps
