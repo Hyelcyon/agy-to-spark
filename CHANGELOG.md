@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.1] - 2026-10-29
+
+### Added
+- **Apple Dynamic Text Morph Transition (`apple-text-crossfade`)**:
+  - Implemented `@keyframes apple-text-crossfade` (0.8px soft lens blur, 3px upward translation, and opacity interpolation from 0.2 to 1 over 240ms via `cubic-bezier(0.16, 1, 0.3, 1)`).
+  - Added real-time text mutation tracking (`triggerTextMorph`) across `thinking-collapsible-trigger`, `worked-for-collapsible`, `agent-loading`, and tool sub-steps (`Running` -> `Ran`).
+  - Eliminates visual stiffness and hard cuts when text updates in place, replacing instantaneous text swaps with Apple-grade fluid typography interpolation.
+
+---
+
 ## [2.3.0] - 2026-10-29
 
 ### Added

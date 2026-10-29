@@ -73,6 +73,24 @@ window.addEventListener('DOMContentLoaded', () => {
     return wrap;
   };
 
+  const triggerTextMorph = (container) => {
+    if (!container) return;
+    const currentText = container.textContent?.trim();
+    const lastText = container.getAttribute('data-last-text');
+    if (lastText && lastText !== currentText) {
+      const textNode = container.querySelector('.truncate') || container.querySelector('span:not(.gemini-gradient-dot):not(.gemini-gradient-dots)') || container;
+      if (textNode) {
+        textNode.classList.remove('gemini-text-morph');
+        void textNode.offsetWidth;
+        textNode.classList.add('gemini-text-morph');
+        setTimeout(() => {
+          textNode.classList.remove('gemini-text-morph');
+        }, 260);
+      }
+    }
+    container.setAttribute('data-last-text', currentText || '');
+  };
+
   let rafScheduled = false;
   const applyBranding = () => {
     rafScheduled = false;
@@ -101,6 +119,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // 4. In-flight agent status ("Working...", "Compacting...", active tool execution)
     const agentLoadingElements = document.querySelectorAll('[data-testid="agent-loading"], [data-testid="ephemeral-tool-status"]');
     agentLoadingElements.forEach(el => {
+      triggerTextMorph(el);
       if (!el.querySelector('.gemini-gradient-dots')) {
         el.insertBefore(createGradientDots(), el.firstChild);
       }
@@ -127,6 +146,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // 6. Update 'Worked for' collapsible headers
     const workedTriggers = document.querySelectorAll('[data-testid="worked-for-collapsible"]');
     workedTriggers.forEach(b => {
+      triggerTextMorph(b);
       b.querySelectorAll('.gemini-static-icon, .gemini-spark-svg').forEach(el => el.remove());
 
       const container = b.parentElement;
@@ -168,6 +188,7 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      triggerTextMorph(el);
       const text = el.textContent || '';
       const hasShimmer = !!el.querySelector('.animate-shimmer-text');
       const isSubStep = text.startsWith('Running') || text.startsWith('Ran') || hasShimmer;
@@ -206,6 +227,9 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       }
     });
+
+    // Monitor thinking collapsible headers for smooth text morph
+    document.querySelectorAll('[data-testid="thinking-collapsible-trigger"]').forEach(b => triggerTextMorph(b));
 
     // 8. Apple-Grade Fluid Text Motion for Newly Arriving Turns & Message Blocks
     const freshTurnElements = document.querySelectorAll('[role="article"]:not([data-motion-applied]), [data-testid="turn-cards-container"] > div:not([data-motion-applied]), [data-testid="user-message-bubble"]:not([data-motion-applied])');

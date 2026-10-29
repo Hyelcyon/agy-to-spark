@@ -29,10 +29,10 @@ if errorlevel 1 goto FAILED
 
 echo.
 echo ======================================================================
-echo  [SUCCESS] Gemini Spark 2.3.0 patch successfully applied!
+echo  [SUCCESS] Gemini Spark 2.3.1 patch successfully applied!
 echo   - 1:1 Authentic Google Gemini colors and GPU mipmapped pixels
-echo   - Apple-grade fluid spring text motion: cubic-bezier(0.16, 1, 0.3, 1)
-echo   - Whisper-soft reveal for new message blocks, paragraphs, and statuses
+echo   - Apple dynamic text morph transition: Smooth crossfade when text updates
+echo   - Apple fluid spring text motion: cubic-bezier(0.16, 1, 0.3, 1)
 echo   - Fixed "Working..." state: Native inline 4-color wave dots on agent-loading
 echo   - Independent text glide animation: 100% fluid transition when steps finish
 echo   - Smooth 4-dot wave while thinking -> 4-dot convergence morph into Spark

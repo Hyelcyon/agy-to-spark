@@ -21,6 +21,25 @@
   }
 }
 
+@keyframes apple-text-crossfade {
+  0% {
+    opacity: 0.2;
+    transform: translateY(3px);
+    filter: blur(0.8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.gemini-text-morph {
+  display: inline-block !important;
+  animation: apple-text-crossfade 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  will-change: transform, opacity, filter !important;
+}
+
 @keyframes apple-message-reveal {
   0% {
     opacity: 0;
