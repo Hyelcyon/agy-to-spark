@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.2.4] - 2026-10-29
+
+### Added
+- **Graceful Gliding Exit Transition**: Eliminated abrupt visual snapping when thinking dots vanish. When sub-steps finish (`Running ...` -> `Ran ...`), the `.gemini-dots-exit` state smoothly collapses container width from 25px to 0px and margin from 4px to 0px over 240ms with `cubic-bezier(0.4, 0, 0.2, 1)`. Simultaneously, the dots dissolve with `opacity: 0` and `transform: scale(0.4)`. The adjacent text smoothly glides to the left instead of snapping instantly.
+- **Unfolding Entrance Animation**: Added `gemini-dots-enter` keyframes (220ms `cubic-bezier(0.16, 1, 0.3, 1)`) so newly appearing dots gracefully unfold into view while easing adjacent text to the right.
+
+### Fixed
+- **Flexbox Min-Width Invariant**: Enforced `min-width: 25px !important; max-width: 25px !important;` in normal state to guarantee flexbox containers can never compress the 4 dots horizontally into vertical bars (`||||`).
+- **Collapsible Selector Scope Isolation**: Refined sub-step button query selector and explicitly excluded `thinking-collapsible-trigger`, `worked-for-collapsible`, and `tool-group-collapsible` to prevent stray floating dots above collapsible headers.
+
+---
+
 ## [2.2.3] - 2026-10-29
 
 ### Fixed

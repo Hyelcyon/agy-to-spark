@@ -2,6 +2,7 @@
    GEMINI SPARK UI STYLES
    - Smooth 4-color wave animation during thinking
    - 4-dot convergence morph animation on completion
+   - Graceful gliding entrance and exit animations for text & dots
    - Strict 4px by 4px circle invariants (zero flexbox squishing)
    ======================================================== */
 
@@ -41,9 +42,26 @@
 }
 
 @keyframes gemini-spark-popin {
-  0% { transform: scale(0.2); opacity: 0; }
-  70% { transform: scale(1.15); opacity: 1; }
+  0% { transform: scale(0.3); opacity: 0; }
+  70% { transform: scale(1.12); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes gemini-dots-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+    width: 0;
+    min-width: 0;
+    margin-right: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    width: 25px;
+    min-width: 25px;
+    margin-right: 4px;
+  }
 }
 
 .gemini-gradient-dots {
@@ -59,6 +77,27 @@
   margin-right: 4px !important;
   flex-shrink: 0 !important;
   box-sizing: border-box !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  animation: gemini-dots-enter 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  transition: width 240ms cubic-bezier(0.4, 0, 0.2, 1),
+              min-width 240ms cubic-bezier(0.4, 0, 0.2, 1),
+              max-width 240ms cubic-bezier(0.4, 0, 0.2, 1),
+              margin-right 240ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 200ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 200ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  will-change: transform, opacity, width, min-width, margin-right !important;
+}
+
+.gemini-gradient-dots.gemini-dots-exit {
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  margin-right: 0 !important;
+  opacity: 0 !important;
+  transform: scale(0.4) !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
 }
 
 .gemini-gradient-dot {

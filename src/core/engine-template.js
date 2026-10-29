@@ -129,6 +129,9 @@ window.addEventListener('DOMContentLoaded', () => {
           b.insertBefore(createGradientDots(), b.firstChild);
         }
       } else if (!isCurrentlyActive && !b.classList.contains('hidden')) {
+        if (existingDots && existingIcon) {
+          existingIcon.remove();
+        }
         if (existingDots && !existingDots.classList.contains('merging')) {
           existingDots.classList.add('merging');
           setTimeout(() => {
@@ -142,22 +145,36 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // 7. Tool sub-steps: STRICT 0% CPU LIFECYCLE
-    const subSteps = document.querySelectorAll('[role="button"]');
+    // 7. Tool sub-steps: Graceful Gliding Exit + Strict 0% CPU Lifecycle
+    const subSteps = document.querySelectorAll('div[role="button"]');
     subSteps.forEach(el => {
-      if (el.getAttribute('data-testid') === 'worked-for-collapsible') return;
-      const hasShimmer = !!el.querySelector('.animate-shimmer-text');
+      const testId = el.getAttribute('data-testid');
+      if (testId === 'worked-for-collapsible' || testId === 'thinking-collapsible-trigger' || testId === 'tool-group-collapsible') {
+        return;
+      }
+
       const text = el.textContent || '';
+      const hasShimmer = !!el.querySelector('.animate-shimmer-text');
+      const isSubStep = text.startsWith('Running') || text.startsWith('Ran') || hasShimmer;
+      if (!isSubStep) return;
+
       const isRunning = hasShimmer || text.startsWith('Running');
       const dots = el.querySelector('.gemini-gradient-dots');
 
       if (isRunning) {
         if (!dots) {
           el.insertBefore(createGradientDots(), el.firstChild);
+        } else if (dots.classList.contains('gemini-dots-exit')) {
+          dots.classList.remove('gemini-dots-exit');
         }
       } else {
-        if (dots) {
-          dots.remove();
+        if (dots && !dots.classList.contains('gemini-dots-exit')) {
+          dots.classList.add('gemini-dots-exit');
+          setTimeout(() => {
+            if (dots.parentNode && dots.classList.contains('gemini-dots-exit')) {
+              dots.remove();
+            }
+          }, 240);
         }
       }
     });
