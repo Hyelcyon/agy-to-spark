@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.11] - 2026-10-29
+
+### Changed
+- **Seamless Feathered Acrylic Shield (경계선 없는 유기적 아크릴 블렌딩)**:
+  - Eliminated the prominent, harsh dark rectangle on sticky user prompts.
+  - Applied an elliptical radial mask and gradient (`radial-gradient(ellipse ...)` with `backdrop-filter: blur(20px)`) allowing user messages to naturally melt into the conversational background without any detectable box boundaries.
+
+---
+
 ## [2.3.10] - 2026-10-29
 
 ### Fixed

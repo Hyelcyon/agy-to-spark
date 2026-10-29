@@ -40,26 +40,38 @@
 }
 
 /* ========================================================
-   SEAMLESS CONVERSATION BLENDING & ACRYLIC STICKY HEADER
+   SEAMLESS CONVERSATION BLENDING & SEAMLESS FEATHERED ACRYLIC
    ======================================================== */
 
 .sticky.top-0 {
   position: sticky !important;
   z-index: 20 !important;
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    rgba(16, 16, 16, 0.70) 0%,
+    rgba(16, 16, 16, 0.50) 60%,
+    transparent 100%
+  ) !important;
+  -webkit-mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    black 60%,
+    transparent 100%
+  ) !important;
+  mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    black 60%,
+    transparent 100%
+  ) !important;
 }
 
-/* Luxurious frosted acrylic glass that cleanly covers scrolled text without a harsh border line */
+/* Eliminate harsh solid box background, shadows, and borders from bleed wrapper */
 .sticky.top-0 .md-sticky-message-bleed {
-  background: rgba(16, 16, 16, 0.82) !important;
-  backdrop-filter: blur(24px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-  border-bottom: none !important;
-  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.45) !important;
-  padding-bottom: 8px !important;
-  -webkit-mask-image: none !important;
-  mask-image: none !important;
+  background-color: transparent !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 .md-sticky-message-bleed::before,
