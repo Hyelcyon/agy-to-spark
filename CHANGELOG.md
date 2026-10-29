@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.3] - 2026-10-29
+
+### Added
+- **Monochrome White Gemini Spark Loading Screen Overlay**:
+  - Patched `dist/loadingOverlay.js` to replace the default Antigravity SVG with the authentic Google Gemini Spark vector path.
+  - Rendered in crisp monochrome white (`fill="white"`) with zero size scaling, preserving the gentle native opacity breathing pulse without distortion.
+
+---
+
 ## [2.3.2] - 2026-10-29
 
 ### Added
