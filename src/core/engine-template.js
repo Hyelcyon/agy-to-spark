@@ -25,16 +25,20 @@ window.addEventListener('DOMContentLoaded', () => {
   } catch (e) {}
 
   // 0.1 Inject Ambient Glow Background
-  try {
-    const injectAmbientGlow = () => {
-      if (!document.getElementById('gemini-spark-ambient-glow') && document.body) {
-        const glow = document.createElement('div');
+  const ensureAmbientGlow = () => {
+    try {
+      const targetContainer = document.querySelector('.agy-sheet') || document.querySelector('.agy-shell') || document.body;
+      let glow = document.getElementById('gemini-spark-ambient-glow');
+      if (!glow) {
+        glow = document.createElement('div');
         glow.id = 'gemini-spark-ambient-glow';
-        document.body.prepend(glow);
+        targetContainer.prepend(glow);
+      } else if (glow.parentElement !== targetContainer) {
+        targetContainer.prepend(glow);
       }
-    };
-    injectAmbientGlow();
-  } catch (e) {}
+    } catch (e) {}
+  };
+  ensureAmbientGlow();
 
   // 1. Intercept window.__APP_CONFIG__ in main world
   try {
@@ -118,11 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
     rafScheduled = false;
 
     // 0. Ambient Aurora Glow background
-    if (!document.getElementById('gemini-spark-ambient-glow') && document.body) {
-      const glow = document.createElement('div');
-      glow.id = 'gemini-spark-ambient-glow';
-      document.body.prepend(glow);
-    }
+    ensureAmbientGlow();
 
     // 1. App logo button (Top-left new conversation button)
     const btn = document.querySelector('[data-testid="app-icon-new-conversation-button"]');

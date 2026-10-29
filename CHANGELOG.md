@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.4] - 2026-10-29
+
+### Added
+- **1:1 Authentic Gemini Conversational Background Aurora Light Source**:
+  - Injected `#gemini-spark-ambient-glow` directly into `.agy-sheet` (the active conversation surface), bypassing the opaque dark shell background (`.agy-shell`).
+  - Implemented multi-tier centered radial aurora gradient matching the official Google Gemini web/desktop app:
+    - Center core: `rgba(20, 60, 160, 0.45)` expanding through `rgba(25, 45, 120, 0.30)` and `rgba(15, 25, 70, 0.12)`.
+    - Soft aura: `rgba(45, 105, 225, 0.28)` and luminous blue highlights `rgba(100, 160, 255, 0.15)`.
+  - Non-blocking `pointer-events: none` and `z-index: 0` ensuring 100% interactive integrity.
+
+---
+
 ## [2.3.3] - 2026-10-29
 
 ### Added

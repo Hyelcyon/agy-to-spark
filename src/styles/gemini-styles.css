@@ -14,19 +14,18 @@
    ======================================================== */
 
 #gemini-spark-ambient-glow {
-  position: fixed !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 65vh !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   pointer-events: none !important;
   z-index: 0 !important;
-  mix-blend-mode: screen !important;
+  overflow: hidden !important;
   opacity: 0.95 !important;
   background:
-    radial-gradient(ellipse 95% 75% at 50% 100%, rgba(29, 66, 160, 0.35) 0%, rgba(35, 45, 110, 0.20) 40%, rgba(16, 20, 45, 0.06) 75%, transparent 100%),
-    radial-gradient(ellipse 65% 50% at 50% 96%, rgba(66, 133, 244, 0.18) 0%, rgba(147, 51, 234, 0.09) 50%, transparent 80%),
-    radial-gradient(ellipse 35% 25% at 50% 98%, rgba(110, 168, 254, 0.12) 0%, transparent 70%) !important;
+    radial-gradient(ellipse 70% 55% at 50% 50%, rgba(20, 60, 160, 0.45) 0%, rgba(25, 45, 120, 0.30) 35%, rgba(15, 25, 70, 0.12) 65%, transparent 100%),
+    radial-gradient(ellipse 45% 35% at 50% 50%, rgba(45, 105, 225, 0.28) 0%, rgba(30, 65, 175, 0.14) 50%, transparent 80%),
+    radial-gradient(ellipse 20% 15% at 50% 50%, rgba(100, 160, 255, 0.15) 0%, transparent 60%) !important;
   animation: gemini-glow-fadein 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   will-change: opacity !important;
 }
