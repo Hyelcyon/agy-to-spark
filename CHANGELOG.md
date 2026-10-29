@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.5] - 2026-10-29
+
+### Changed
+- **Calibrated Subtle Ambient Aurora Glow (광원 강도 완화)**:
+  - Reduced ambient glow layer opacity from `0.95` to a softer, restrained `0.55`.
+  - Calibrated radial gradient color stops to gentle pastel transparency (`0.28` / `0.18` / `0.07` for dark blue base, `0.16` / `0.08` for iris, and `0.08` for core highlights).
+  - Eliminates visual distraction during reading while preserving the authentic ethereal Gemini atmosphere.
+
+---
+
 ## [2.3.4] - 2026-10-29
 
 ### Added

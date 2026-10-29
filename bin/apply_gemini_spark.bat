@@ -29,7 +29,8 @@ if errorlevel 1 goto FAILED
 
 echo.
 echo ======================================================================
-echo  [SUCCESS] Gemini Spark 2.3.4 patch successfully applied!
+echo  [SUCCESS] Gemini Spark 2.3.5 patch successfully applied!
+echo   - Calibrated subtle ambient aurora glow
 echo   - 1:1 Authentic Gemini center aurora background light source (광원)
 echo   - Crisp monochrome white Gemini Spark initial loading screen overlay
 echo   - Authentic Google Gemini ambient aurora light source (광원)

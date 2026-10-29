@@ -21,11 +21,11 @@
   pointer-events: none !important;
   z-index: 0 !important;
   overflow: hidden !important;
-  opacity: 0.95 !important;
+  opacity: 0.55 !important;
   background:
-    radial-gradient(ellipse 70% 55% at 50% 50%, rgba(20, 60, 160, 0.45) 0%, rgba(25, 45, 120, 0.30) 35%, rgba(15, 25, 70, 0.12) 65%, transparent 100%),
-    radial-gradient(ellipse 45% 35% at 50% 50%, rgba(45, 105, 225, 0.28) 0%, rgba(30, 65, 175, 0.14) 50%, transparent 80%),
-    radial-gradient(ellipse 20% 15% at 50% 50%, rgba(100, 160, 255, 0.15) 0%, transparent 60%) !important;
+    radial-gradient(ellipse 70% 55% at 50% 50%, rgba(20, 60, 160, 0.28) 0%, rgba(25, 45, 120, 0.18) 35%, rgba(15, 25, 70, 0.07) 65%, transparent 100%),
+    radial-gradient(ellipse 45% 35% at 50% 50%, rgba(45, 105, 225, 0.16) 0%, rgba(30, 65, 175, 0.08) 50%, transparent 80%),
+    radial-gradient(ellipse 20% 15% at 50% 50%, rgba(100, 160, 255, 0.08) 0%, transparent 60%) !important;
   animation: gemini-glow-fadein 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   will-change: opacity !important;
 }
@@ -35,7 +35,7 @@
     opacity: 0;
   }
   100% {
-    opacity: 0.95;
+    opacity: 0.55;
   }
 }
 
