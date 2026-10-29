@@ -39,6 +39,30 @@
   }
 }
 
+/* ========================================================
+   SEAMLESS CONVERSATION BLENDING & STICKY STRIP ELIMINATION
+   ======================================================== */
+
+/* Eliminate harsh solid-black header cutting across the background aurora glow */
+.md-sticky-message-bleed {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+.md-sticky-message-bleed::before {
+  display: none !important;
+}
+
+.md-sticky-message-bleed::after {
+  display: none !important;
+}
+
+/* Luxurious frosted glass effect on sticky message row when pinned */
+.sticky.top-0 {
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
 /* Apple-style Fluid Spring Easing Constants: cubic-bezier(0.16, 1, 0.3, 1) */
 
 @keyframes apple-text-reveal {

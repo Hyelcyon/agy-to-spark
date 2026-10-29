@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.6] - 2026-10-29
+
+### Fixed
+- **Seamless Sticky Header Blending (`.md-sticky-message-bleed`)**:
+  - Eliminated the solid-black horizontal box strip cutting across the conversation ambient aurora glow.
+  - Set `.md-sticky-message-bleed` background to transparent and suppressed pseudo-elements (`::before`, `::after`) that forced opaque black gradients.
+  - Added modern frosted glass effect (`backdrop-filter: blur(12px)`) on pinned sticky user rows for seamless visual unity with the background light source.
+
+---
+
 ## [2.3.5] - 2026-10-29
 
 ### Changed
