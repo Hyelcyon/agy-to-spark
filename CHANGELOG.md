@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.10] - 2026-10-29
+
+### Fixed
+- **Acrylic Frosted Glass Sticky Header (경계선 없는 아크릴 커버)**:
+  - Eliminated transparent text overlapping by implementing high-density acrylic frosted glass (`rgba(16, 16, 16, 0.82)` with `backdrop-filter: blur(24px) saturate(180%)`).
+  - Removed artificial bottom borders, replacing them with a natural diffused shadow (`box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.45)`) that cleanly shields scrolled text while seamlessly fading out into the ambient background.
+
+---
+
 ## [2.3.9] - 2026-10-29
 
 ### Changed

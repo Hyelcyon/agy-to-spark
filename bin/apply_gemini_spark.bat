@@ -29,7 +29,8 @@ if errorlevel 1 goto FAILED
 
 echo.
 echo ======================================================================
-echo  [SUCCESS] Gemini Spark 2.3.9 patch successfully applied!
+echo  [SUCCESS] Gemini Spark 2.3.10 patch successfully applied!
+echo   - Acrylic frosted glass sticky header (shields scrolled text softly without harsh lines)
 echo   - Organic feathered edge for pinned sticky headers (eliminated sharp cut line)
 echo   - Neutralized user input card box containers
 echo   - Clean borderless user message layout (removed bulky dark box)
