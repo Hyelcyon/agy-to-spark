@@ -29,8 +29,8 @@ if errorlevel 1 goto FAILED
 
 echo.
 echo ======================================================================
-echo  [SUCCESS] Gemini Spark 2.3.1 patch successfully applied!
-echo   - 1:1 Authentic Google Gemini colors and GPU mipmapped pixels
+echo  [SUCCESS] Gemini Spark 2.3.2 patch successfully applied!
+echo   - Authentic Google Gemini ambient aurora light source (광원)
 echo   - Apple dynamic text morph transition: Smooth crossfade when text updates
 echo   - Apple fluid spring text motion: cubic-bezier(0.16, 1, 0.3, 1)
 echo   - Fixed "Working..." state: Native inline 4-color wave dots on agent-loading

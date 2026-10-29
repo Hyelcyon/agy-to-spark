@@ -1,12 +1,44 @@
 /* ========================================================
    GEMINI SPARK UI STYLES
-   - Apple-Grade Fluid Text & UI Motion System
+   - Authentic Gemini Aurora Ambient Light Source (광원)
+   - Apple-Grade Fluid Text & UI Motion System (Morph Transitions)
    - Smooth 4-color wave animation during thinking
    - 4-dot convergence morph animation on completion
    - Graceful gliding entrance and exit animations for text & dots
    - Independent text glide animation for sub-steps (zero-snap guarantee)
    - Strict 4px by 4px circle invariants (zero flexbox squishing)
    ======================================================== */
+
+/* ========================================================
+   AUTHENTIC GEMINI AMBIENT LIGHT SOURCE (광원)
+   ======================================================== */
+
+#gemini-spark-ambient-glow {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 65vh !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+  mix-blend-mode: screen !important;
+  opacity: 0.95 !important;
+  background:
+    radial-gradient(ellipse 95% 75% at 50% 100%, rgba(29, 66, 160, 0.35) 0%, rgba(35, 45, 110, 0.20) 40%, rgba(16, 20, 45, 0.06) 75%, transparent 100%),
+    radial-gradient(ellipse 65% 50% at 50% 96%, rgba(66, 133, 244, 0.18) 0%, rgba(147, 51, 234, 0.09) 50%, transparent 80%),
+    radial-gradient(ellipse 35% 25% at 50% 98%, rgba(110, 168, 254, 0.12) 0%, transparent 70%) !important;
+  animation: gemini-glow-fadein 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  will-change: opacity !important;
+}
+
+@keyframes gemini-glow-fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.95;
+  }
+}
 
 /* Apple-style Fluid Spring Easing Constants: cubic-bezier(0.16, 1, 0.3, 1) */
 
@@ -23,9 +55,9 @@
 
 @keyframes apple-text-crossfade {
   0% {
-    opacity: 0.2;
-    transform: translateY(3px);
-    filter: blur(0.8px);
+    opacity: 0.15;
+    transform: translateY(4px);
+    filter: blur(1.2px);
   }
   100% {
     opacity: 1;
@@ -36,7 +68,7 @@
 
 .gemini-text-morph {
   display: inline-block !important;
-  animation: apple-text-crossfade 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  animation: apple-text-crossfade 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   will-change: transform, opacity, filter !important;
 }
 

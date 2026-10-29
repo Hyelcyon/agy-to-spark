@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.3.2] - 2026-10-29
+
+### Added
+- **Official Google Gemini Ambient Aurora Light Source (배경 광원)**:
+  - Injected an authentic bottom-emanating ambient glow layer (`#gemini-spark-ambient-glow`) matching the official Google Gemini mobile/web experience.
+  - Multi-tiered elliptical radial gradients composed of deep royal blue (`rgba(29, 66, 160, 0.35)`), indigo aurora (`rgba(66, 133, 244, 0.18)`), and soft violet glow (`rgba(147, 51, 234, 0.09)`).
+  - Configured with `pointer-events: none;`, `mix-blend-mode: screen;`, `height: 65vh;`, and `z-index: 0` to preserve 100% click-through, text selection, and 0% CPU overhead.
+  - Smooth 800ms `@keyframes gemini-glow-fadein` on initial mount.
+- **Deep Leaf-Node Text Morphing Precision**:
+  - Enhanced `triggerTextMorph` algorithm to drill into the exact text-bearing leaf span / `.truncate` container, triggering `@keyframes apple-text-crossfade` with a calibrated 1.2px lens blur and 4px vertical glide.
+  - Guarantees seamless text transitions when in-flight statuses morph (`Running ...` -> `Ran ...`, `Thinking...` -> `Thought for ...`) without text jumping or visual harshness.
+- **Support for Antigravity Upstream v2.28.1**:
+  - Verified package integrity and updated patch synchronization targets for upstream version `2.28.1`.
+
+---
+
 ## [2.3.1] - 2026-10-29
 
 ### Added

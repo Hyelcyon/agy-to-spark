@@ -24,6 +24,18 @@ window.addEventListener('DOMContentLoaded', () => {
     (document.head || document.documentElement).appendChild(s);
   } catch (e) {}
 
+  // 0.1 Inject Ambient Glow Background
+  try {
+    const injectAmbientGlow = () => {
+      if (!document.getElementById('gemini-spark-ambient-glow') && document.body) {
+        const glow = document.createElement('div');
+        glow.id = 'gemini-spark-ambient-glow';
+        document.body.prepend(glow);
+      }
+    };
+    injectAmbientGlow();
+  } catch (e) {}
+
   // 1. Intercept window.__APP_CONFIG__ in main world
   try {
     const s = document.createElement('script');
@@ -78,14 +90,24 @@ window.addEventListener('DOMContentLoaded', () => {
     const currentText = container.textContent?.trim();
     const lastText = container.getAttribute('data-last-text');
     if (lastText && lastText !== currentText) {
-      const textNode = container.querySelector('.truncate') || container.querySelector('span:not(.gemini-gradient-dot):not(.gemini-gradient-dots)') || container;
-      if (textNode) {
-        textNode.classList.remove('gemini-text-morph');
-        void textNode.offsetWidth;
-        textNode.classList.add('gemini-text-morph');
+      // Find the direct text carrying element or leaf node
+      const candidates = container.querySelectorAll('.truncate, span:not(.gemini-gradient-dot):not(.gemini-gradient-dots)');
+      let targetNode = null;
+      for (const el of candidates) {
+        if (el.children.length === 0 || Array.from(el.childNodes).some(n => n.nodeType === 3 && n.nodeValue?.trim())) {
+          targetNode = el;
+          break;
+        }
+      }
+      if (!targetNode) targetNode = container.querySelector('.truncate') || container;
+
+      if (targetNode) {
+        targetNode.classList.remove('gemini-text-morph');
+        void targetNode.offsetWidth;
+        targetNode.classList.add('gemini-text-morph');
         setTimeout(() => {
-          textNode.classList.remove('gemini-text-morph');
-        }, 260);
+          targetNode.classList.remove('gemini-text-morph');
+        }, 280);
       }
     }
     container.setAttribute('data-last-text', currentText || '');
@@ -94,6 +116,13 @@ window.addEventListener('DOMContentLoaded', () => {
   let rafScheduled = false;
   const applyBranding = () => {
     rafScheduled = false;
+
+    // 0. Ambient Aurora Glow background
+    if (!document.getElementById('gemini-spark-ambient-glow') && document.body) {
+      const glow = document.createElement('div');
+      glow.id = 'gemini-spark-ambient-glow';
+      document.body.prepend(glow);
+    }
 
     // 1. App logo button (Top-left new conversation button)
     const btn = document.querySelector('[data-testid="app-icon-new-conversation-button"]');
