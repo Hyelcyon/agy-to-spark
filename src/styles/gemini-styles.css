@@ -1,0 +1,129 @@
+/* ========================================================
+   GEMINI SPARK UI STYLES
+   - Smooth 4-color wave animation during thinking
+   - 4-dot convergence morph animation on completion
+   - Strict 4px by 4px circle invariants (zero flexbox squishing)
+   ======================================================== */
+
+@keyframes gemini-smooth-wave {
+  0%, 100% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-3.5px) scale(1.15);
+    opacity: 1;
+  }
+}
+
+@keyframes gemini-dot-converge-1 {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  80% { transform: translateY(0) translateX(9px) scale(0.5); opacity: 0.8; }
+  100% { transform: translateY(0) translateX(9px) scale(0); opacity: 0; }
+}
+
+@keyframes gemini-dot-converge-2 {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  80% { transform: translateY(0) translateX(3px) scale(0.5); opacity: 0.8; }
+  100% { transform: translateY(0) translateX(3px) scale(0); opacity: 0; }
+}
+
+@keyframes gemini-dot-converge-3 {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  80% { transform: translateY(0) translateX(-3px) scale(0.5); opacity: 0.8; }
+  100% { transform: translateY(0) translateX(-3px) scale(0); opacity: 0; }
+}
+
+@keyframes gemini-dot-converge-4 {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  80% { transform: translateY(0) translateX(-9px) scale(0.5); opacity: 0.8; }
+  100% { transform: translateY(0) translateX(-9px) scale(0); opacity: 0; }
+}
+
+@keyframes gemini-spark-popin {
+  0% { transform: scale(0.2); opacity: 0; }
+  70% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.gemini-gradient-dots {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  width: 25px !important;
+  min-width: 25px !important;
+  max-width: 25px !important;
+  height: 14px !important;
+  vertical-align: middle !important;
+  margin-right: 4px !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.gemini-gradient-dot {
+  display: inline-block !important;
+  width: 4px !important;
+  height: 4px !important;
+  min-width: 4px !important;
+  min-height: 4px !important;
+  max-width: 4px !important;
+  max-height: 4px !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+  aspect-ratio: 1 / 1 !important;
+  box-sizing: border-box !important;
+  animation: gemini-smooth-wave 1.3s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+  will-change: transform, opacity !important;
+}
+
+.gemini-gradient-dot.dot-blue {
+  background: radial-gradient(circle at 35% 35%, #70a5ff, #1a73e8) !important;
+  box-shadow: 0 0 3px rgba(66, 133, 244, 0.5) !important;
+  animation-delay: 0.0s !important;
+}
+
+.gemini-gradient-dot.dot-red {
+  background: radial-gradient(circle at 35% 35%, #ff7b72, #d93025) !important;
+  box-shadow: 0 0 3px rgba(234, 67, 53, 0.5) !important;
+  animation-delay: 0.18s !important;
+}
+
+.gemini-gradient-dot.dot-yellow {
+  background: radial-gradient(circle at 35% 35%, #fde280, #f9ab00) !important;
+  box-shadow: 0 0 3px rgba(251, 188, 4, 0.5) !important;
+  animation-delay: 0.36s !important;
+}
+
+.gemini-gradient-dot.dot-green {
+  background: radial-gradient(circle at 35% 35%, #81c995, #1e8e3e) !important;
+  box-shadow: 0 0 3px rgba(52, 168, 83, 0.5) !important;
+  animation-delay: 0.54s !important;
+}
+
+.gemini-gradient-dots.merging .dot-blue {
+  animation: gemini-dot-converge-1 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.gemini-gradient-dots.merging .dot-red {
+  animation: gemini-dot-converge-2 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.gemini-gradient-dots.merging .dot-yellow {
+  animation: gemini-dot-converge-3 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.gemini-gradient-dots.merging .dot-green {
+  animation: gemini-dot-converge-4 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+.gemini-official-icon {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  margin-right: 4px !important;
+  flex-shrink: 0 !important;
+  width: 14px !important;
+  height: 14px !important;
+  object-fit: contain !important;
+  animation: gemini-spark-popin 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards !important;
+}

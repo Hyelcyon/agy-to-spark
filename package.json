@@ -1,0 +1,40 @@
+{
+  "name": "agy-to-spark",
+  "version": "2.2.3",
+  "description": "High-fidelity, version-independent rebranding and thinking engine transforming Google Antigravity into Gemini Spark.",
+  "main": "src/index.js",
+  "bin": {
+    "agy-to-spark": "./bin/cli.js"
+  },
+  "scripts": {
+    "patch": "node ./bin/cli.js apply",
+    "restore": "node ./bin/cli.js restore",
+    "verify": "node ./scripts/verify.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "antigravity",
+    "gemini",
+    "gemini-spark",
+    "electron",
+    "asar",
+    "branding",
+    "patcher"
+  ],
+  "author": "Hyelcyon <hyeseongan871@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hyelcyon/agy-to-spark.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hyelcyon/agy-to-spark/issues"
+  },
+  "homepage": "https://github.com/Hyelcyon/agy-to-spark#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@electron/asar": "^3.2.14"
+  }
+}
